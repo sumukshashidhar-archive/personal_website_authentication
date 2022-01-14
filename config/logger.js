@@ -1,6 +1,6 @@
 const winston = require("winston");
 const logger = winston.createLogger({
-  level: process.env.LOG_LEVEL || "info",
+  level: process.env.LOG_LEVEL || "silly",
   format: winston.format.json(),
   transports: [
     new winston.transports.File({
@@ -14,4 +14,4 @@ const logger = winston.createLogger({
   ],
 });
 
-module.exports = logger;  
+module.exports = logger;
