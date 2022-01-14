@@ -1,0 +1,19 @@
+{
+  "name": "authentication-service",
+  "version": "1.0.0",
+  "description": "The general purpose authentication service with no frontend.",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@gitlab.com/p5279/microservices/authentication-service.git"
+  },
+  "author": "sumukshashidhar",
+  "license": "GPL-3.0-or-later",
+  "bugs": {
+    "url": "https://gitlab.com/p5279/microservices/authentication-service/issues"
+  },
+  "homepage": "https://gitlab.com/p5279/microservices/authentication-service#readme"
+}
