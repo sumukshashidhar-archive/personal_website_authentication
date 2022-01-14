@@ -19,7 +19,7 @@ const mongoose = require('mongoose');
 
 
 // MODULE IMPORTS
-const logger = require("./config/logger").logger;
+const logger = require("./config/logger");
 
 // CONFIG IMPORTS
 require('dotenv').config()
