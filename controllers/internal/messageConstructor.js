@@ -43,4 +43,14 @@ module.exports = {
       message: message,
     };
   },
+
+  externalObjectReturn: function (message, object, view) {
+    logger.silly(
+      `Received an external message request with ${message} at endpoint ${view} with an object ${object}`
+    );
+    return {
+      message: message,
+      object: object,
+    };
+  },
 };
