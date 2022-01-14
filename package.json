@@ -30,6 +30,7 @@
     "path": "^0.12.7",
     "prettier": "^2.5.1",
     "rfs": "^9.0.6",
+    "rotating-file-stream": "^3.0.2",
     "winston": "^3.4.0"
   }
 }
