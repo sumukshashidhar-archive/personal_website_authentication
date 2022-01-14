@@ -55,7 +55,7 @@ mongoose.connect(process.env.MONGO_URI, {
 // add prefix to routes
 const router = express.Router();
 const routes = require('./routes')(router, {});
-app.use('/auth', routes);
+app.use('/api/auth', routes);
 
 app.listen(process.env.PORT, () => {
     logger.info(`listening on port ${process.env.PORT}`);
