@@ -25,6 +25,7 @@
     "express-validator": "^6.14.0",
     "fs": "^0.0.1-security",
     "helmet": "^5.0.1",
+    "jest": "^27.4.7",
     "joi": "^17.5.0",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^6.1.6",
