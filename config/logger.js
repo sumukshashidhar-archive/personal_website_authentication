@@ -14,6 +14,4 @@ const logger = winston.createLogger({
   ],
 });
 
-module.exports = {
-    logger:logger
-}
+module.exports = logger;  
