@@ -17,11 +17,11 @@ const path = require("path");
 const rfs = require("rotating-file-stream");
 const mongoose = require("mongoose");
 
-// MODULE IMPORTS
-const logger = require("./config/logger");
-
 // CONFIG IMPORTS
 require("dotenv").config();
+
+// MODULE IMPORTS
+const logger = require("./config/logger");
 
 // defining the Express app
 const app = express();
