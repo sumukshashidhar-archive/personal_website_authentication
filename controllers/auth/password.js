@@ -13,7 +13,7 @@ module.exports = {
       );
       bcrypt.hash(
         plaintextPassword,
-        parseInt(process.env.SALT_ROUNDS),
+        parseInt(process.env.SALT_ROUNDS) || 9,
         function (error, hashedPassword) {
           if (error) {
             logger.error(
