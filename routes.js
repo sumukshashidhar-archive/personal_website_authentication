@@ -3,16 +3,61 @@ const messages = require("./controllers/internal/messageConstructor");
 // LOGIC
 const loginProcessor = require("./controllers/auth/login");
 const validationProcessor = require("./controllers/token/validate");
-
+const registrationProcessor = require("./controllers/auth/signup");
 // VALIDATION SCHEMA IMPORT
 const loginSchema = require("./controllers/validation/schema/login");
 const headerSchema = require("./controllers/validation/schema/header");
-
+const signupSchema = require("./controllers/validation/schema/signup");
+const { ValidationError } = require("joi");
 module.exports = function (app) {
   app.get("/", function (_, res) {
     res
       .status(200)
       .json(messages.externalMessage(`Server is up at ${Date.now()}`, "/"));
+  });
+
+  app.post("/register", async function (req, res) {
+    /*
+     * Default register route to allow the registration of users.
+     * We want to allow only the registration of regular users, and control the registration of admins with a set
+     * server password later on, where we update the role of a user.
+     * For now, everyone will be given the general role.
+     * */
+    // first, let us validate the input in the traditional sense
+    let validation;
+    try {
+      validation = await signupSchema.validateAsync(req.body);
+    } catch (e) {
+      if (e instanceof ValidationError) {
+        // essentially check if a validation error with JOI has occured, if it has, tell the user about it.
+        return res
+          .status(400)
+          .json(
+            messages.externalMessage(`Input Validation Error`, "/register")
+          );
+      } else {
+        return res
+          .status(500)
+          .json(messages.externalObjectReturn("Unknown Error", e, "/register"));
+      }
+    }
+    // if we reach this point, it means that the validation of input has succeeded
+    // we just need to construct a user object and hand over the values to the user create function
+    const userObject = {
+      email: validation.email,
+      password: validation.password,
+    };
+    // lets pass it onto the registration function
+    try {
+      let response = await registrationProcessor(userObject);
+      res
+        .status(response.status)
+        .json(messages.externalMessage(response.message, "/register"));
+    } catch (e) {
+      return res
+        .status(500)
+        .json(messages.externalMessage(`Unexpected error ${e}`, "/register"));
+    }
   });
 
   app.post("/login", async function (req, res) {
