@@ -1,6 +1,6 @@
-const tokenExtract = require("./../token/tokenExtractor");
-const validate = require("./../token/signAndValidate").validate;
-const messages = require("./../internal/messageConstructor");
+const tokenExtract = require("./tokenExtractor");
+const validate = require("./signAndValidate").validate;
+const messages = require("../internal/messageConstructor");
 module.exports = async function (header) {
   let extractedToken = tokenExtract(header);
   if (extractedToken === false) {

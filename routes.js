@@ -1,11 +1,8 @@
-// MODULE IMPORTS
-const Joi = require("joi");
-
 // HELPERS
 const messages = require("./controllers/internal/messageConstructor");
 // LOGIC
 const loginProcessor = require("./controllers/auth/login");
-const validationProcessor = require("./controllers/auth/validate");
+const validationProcessor = require("./controllers/token/validate");
 
 // VALIDATION SCHEMA IMPORT
 const loginSchema = require("./controllers/validation/schema/login");
