@@ -1,11 +1,11 @@
 module.exports  = {
     signOptions: {
-        issuer:  "SumukShashidhar",
+        issuer:  "Quant",
         expiresIn:  "24h",
         algorithm:  "RS512"
     },
     verifyOptions: {
-        issuer:  "SumukShashidhar",
+        issuer:  "Quant",
         expiresIn:  "24h",
         algorithm:  ["RS512"],
        }
