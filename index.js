@@ -55,7 +55,7 @@ mongoose
 // add prefix to routes
 const router = express.Router();
 const routes = require("./routes")(router, {});
-app.use("/api/auth", routes);
+app.use("/auth", routes);
 
 app.listen(process.env.PORT, () => {
   logger.info(`listening on port ${process.env.PORT}`);
