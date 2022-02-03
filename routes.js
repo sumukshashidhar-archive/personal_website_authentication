@@ -13,7 +13,7 @@ module.exports = function (app) {
   app.get("/", function (_, res) {
     res
       .status(200)
-      .json(messages.externalMessage(`Server is up at ${Date.now()}`, "/"));
+      .json(messages.externalMessage(`Server is up at ${Date.now()}. You are being served from ${process.env.SERVER_IDENTITY}.`, "/"));
   });
 
   app.post("/register", async function (req, res) {
